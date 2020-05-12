@@ -7,5 +7,32 @@
 }
 div{
     width: 100%;
-    padding: 0 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
+footer{
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+}
+h1{
+    font-size: 30px; 
+    text-align: center;
+    color: whitesmoke;
+}
+a{
+    color: whitesmoke;
+}
+.menulateral{
+background-color:#343a40;
+color: whitesmoke;
+
+}
+div.menulateral div a.card-link:hover{
+    color: whitesmoke;
+
 }

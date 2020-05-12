@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+    <title>Vista Admin Home</title>
+</head>
+
+<body class="bg">
+
+    <!--header-->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <div class="navbar-header col-4 m-0 " style=" display: flex;">
+                <div style="padding: 0;">
+                    <a class="navbar-brand" href="#"></a><img src="img/logo-png.png" alt="Logo"
+                        style="width: 90%; height: 90%;"></a>
+                </div>
+                <div style="padding: 0; margin: 0;">
+                    <h1 style="font-size: 30px; text-align: center;">Concesionario<br>San Pedro</h1>
+                </div>
+            </div>
+            <div class="col-6">
+                <form class="form-inline">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Buscar"
+                        aria-label="Search">
+                    <button class="btn btn-sm btn-outline-black my-0 bg-black" type="button">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+
+
+            <div class="col-2 m-0 p-0">
+                <p style="color: white; margin: 0; ">Bienvenido admin <img src="img/user.png" alt="icono user"
+                        width="10%" height="10%" style="margin-left: 5%;"></p>
+            </div>
+        </div>
+
+
+    </nav>
+
+    <!--Menu lateral-->
+
+    <div class="row">
+        <div class="col-2" style="margin-top: 2%; margin-left: 2%; background-color:#00000094; height: 300px;">
+            <div id="accordion" style="margin-top: 10%;">
+
+                <div class="card menulateral">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                            Vehiculos
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <!-- poner hiperenlaces mas que checkbox con las opciones mas usadas o accesos directos-->
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Option 1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Option 2
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card menulateral">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                            Usuarios
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Option 1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Option 2
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card menulateral">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                            Empleados
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Option 1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Option 2
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!--Mensaje Bienvenida-->
+        <div class="col-8" style="margin-top: 12.5%; background-color:#00000094; margin-left: 2%;">
+            <div>
+                <img src="img/logo-lema.png" alt="Logotipo empresa con lema" width="100%" height="90%">
+            </div>
+        </div>
+        <div class="col-2">
+            <!--div de relleno-->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark pt-4 p-0">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="text-center" style="display: flex; justify-content: center;">
+            <a href="https://mdbootstrap.com/" style="flex-grow: 1"> Contacto</a>
+
+
+            <a href="https://mdbootstrap.com/" style="flex-grow: 1"> Póliticas de privacidad & Términos
+                y condiciones</a>
+
+
+            <a href="https://mdbootstrap.com/" style="flex-grow: 1"> Ubicación</a>
+
+        </div>
+
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+
+    <!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
