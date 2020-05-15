@@ -23,6 +23,8 @@ h1{
     font-size: 30px; 
     text-align: center;
     color: whitesmoke;
+    margin: 0px;
+    padding: 0px;
 }
 a{
     color: whitesmoke;
