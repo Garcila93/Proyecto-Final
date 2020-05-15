@@ -3,7 +3,6 @@ package com.ProyectoFinal.main.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,20 +22,38 @@ public class Carrito {
 	private long id;
 	
 	private long idCarrito;
-	private double descuento;
+	private double precio;
 	private int numArticulo;
-	
+		
+	//asociacion carr-vehiStock
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy="Carrito", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Vehiculo> componentes = new ArrayList<>();
+	@OneToMany(mappedBy="Carrito")
+	private List<Vehiculo> VehiculosStock = new ArrayList<>();
 	
-	public Carrito(long idCarrito, double descuento, int numArticulo) {
+	//asociacion carr-user
+	
+	public Carrito(long idCarrito, double precio, int numArticulo, List<Vehiculo> itemsCarro,
+			List<Vehiculo> vehiculosStock) {
 		super();
 		this.idCarrito = idCarrito;
-		this.descuento = descuento;
+		this.precio = precio;
 		this.numArticulo = numArticulo;
+		VehiculosStock = vehiculosStock;
 	}
 	
+	//Helpers carr-vehiStock
+	public void addVehiculoCarr(Vehiculo veh) {
+		this.VehiculosStock.add(veh);
+		veh.setCarrito(this);
+		}
+	
+	public void removeVehiculoCarr(Vehiculo veh) {
+		this.VehiculosStock.remove(veh);
+		veh.setCarrito(null);
+		
+	}
+
+
 
 }

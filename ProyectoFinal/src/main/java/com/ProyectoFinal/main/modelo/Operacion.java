@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,15 +26,19 @@ public class Operacion {
 	private double precioTotal;
 	private Date fechaOpe;
 	
+	//asociciacion ope-emp
 	@ManyToOne
 	private Empleados Empleados;
+	
+	//asociacion ope-user
 	@ManyToOne
 	private UsuarioReg UsuarioReg;
 	
+	//asociacion ope-vehi
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy="Operacion", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Vehiculo> componentes = new ArrayList<>();
+	@OneToMany(mappedBy="Operacion")
+	private List<Vehiculo> vehiculosOpe = new ArrayList<>();
 	
 	public Operacion(long idOperacion, double precioTotal, Date fechaOpe) {
 		super();
@@ -44,5 +47,15 @@ public class Operacion {
 		this.fechaOpe = fechaOpe;
 	}
 
+	//helpers Oper-vehiStock
+	public void addVehiculoOpe(Vehiculo veh) {
+		this.vehiculosOpe.add(veh);
+		veh.setOperacion(this);
+	}
+	
+	public void removeVehiculosOpe(Vehiculo veh) {
+		this.vehiculosOpe.remove(veh);
+		veh.setOperacion(null);
+	}
 
 }

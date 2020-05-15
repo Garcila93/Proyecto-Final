@@ -1,13 +1,19 @@
 package com.ProyectoFinal.main.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data @NoArgsConstructor
 @Entity
@@ -21,6 +27,18 @@ public class Vehiculo {
 	private int motor, cv, km;
 	private Date fechaAlta, fechaCompra, fechaVenta;
 	private double precio;
+	
+	@ManyToOne
+	private Carrito carrito;
+	
+	@ManyToOne
+	private Operacion operacion;
+	
+	
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	@ManyToMany(mappedBy="VehiculosFav")
+	private List<UsuarioReg> UsuariosReg = new ArrayList<>();
 	
 	public Vehiculo(String numBastidor, String matricula, String marca, String modelo, String tipoAuto,
 			String tipoCombustible, String estado, int motor, int cv, int km, Date fechaAlta,
