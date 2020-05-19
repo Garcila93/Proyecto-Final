@@ -1,12 +1,19 @@
 package com.ProyectoFinal.main.modelo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,31 +22,39 @@ import lombok.ToString;
 
 @Data @NoArgsConstructor
 @Entity
-public class Empleados {
+public class Empleados implements UserDetails{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private long id;
-	private String nomUser, pass, nombre, apellido, correo, direccion, numTel;
+	
+	@Column(unique = true)
+	private String email;
+	
+	private String password, nombre, apellido, direccion, numTel;
+	private boolean admin=false;
 	
 	//asociaciones empleados-operacion
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@OneToMany(mappedBy="Empleados")
 	private List<Operacion> operaciones = new ArrayList<>();
-	
-	public Empleados(String nomUser, String pass, String nombre, String apellido, String correo, String direccion,
-			String numTel) {
+
+	//constructor
+	public Empleados(String email, String password, String nombre, String apellido, String direccion, String numTel,
+			boolean admin, List<Operacion> operaciones) {
 		super();
-		this.nomUser = nomUser;
-		this.pass = pass;
+		this.email = email;
+		this.password = password;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.correo = correo;
 		this.direccion = direccion;
 		this.numTel = numTel;
+		this.admin = admin;
+		this.operaciones = operaciones;
 	}
-	
 	//Helpers asociacion emp-ope
 	public void addOperacionAdmin(Operacion ope) {
 		this.operaciones.add(ope);
@@ -50,12 +65,47 @@ public class Empleados {
 		this.operaciones.remove(ope);
 		ope.setEmpleados(null);;
 	}
-	
-	
 
-	
-	
-	
-	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		String role = "ROLE_";
+		if (admin) {
+			role += "ADMIN";
+		} else {
+			role += "USER";
+		}
+		return Arrays.asList(new SimpleGrantedAuthority(role));
+	}		
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 
 }

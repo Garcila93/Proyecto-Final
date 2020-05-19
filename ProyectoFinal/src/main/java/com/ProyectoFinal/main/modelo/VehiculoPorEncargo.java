@@ -1,6 +1,7 @@
 package com.ProyectoFinal.main.modelo;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 import javax.persistence.Entity;
 
@@ -22,8 +23,8 @@ public class VehiculoPorEncargo extends Vehiculo {
 	private boolean farosLed;
 	
 	public VehiculoPorEncargo(String numBastidor, String matricula, String marca, String modelo, String tipoAuto,
-			String tipoCombustible, String estado, int motor, int cv, int km, Date fechaAlta, Date fechaCompra,
-			Date fechaVenta, double precio, String color, boolean llantasAle, boolean lunasTint, boolean ac,
+			String tipoCombustible, String estado, int motor, int cv, int km, LocalDate fechaAlta, LocalDate fechaCompra,
+			LocalDate fechaVenta, double precio, String color, boolean llantasAle, boolean lunasTint, boolean ac,
 			boolean navegador, boolean farosLed) {
 		super(numBastidor, matricula, marca, modelo, tipoAuto, tipoCombustible, estado, motor, cv, km, fechaAlta,
 				fechaCompra, fechaVenta, precio);

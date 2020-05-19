@@ -1,8 +1,11 @@
 package com.ProyectoFinal.main.modelo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +15,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -19,18 +27,29 @@ import lombok.ToString;
 
 @Data @NoArgsConstructor
 @Entity
-public class UsuarioReg {
+public class UsuarioReg implements UserDetails {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private long id;
 	
-	private String nomUser, pass, nombre, apellidos, correo, direccion, telCont;
+	@Column(unique = true)
+	private String email;
+	
+	
+	//@Autowired
+	private String password;
+	
+	private String nombre, apellidos, direccion, telCont;
+	
+	private boolean admin=false;
 	
 	//Asocicacion user-operciones
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy="UsuarioReg")
+	@OneToMany(mappedBy="usuarioReg")
 	private List<Operacion> operaciones = new ArrayList<>();
 	
 	//asociacion user-carrito
@@ -41,22 +60,28 @@ public class UsuarioReg {
 	@ManyToMany
 	@JoinTable(
 		joinColumns = @JoinColumn(name="Usuario"),
-		inverseJoinColumns = @JoinColumn(name="Vehiculo Fav")
+		inverseJoinColumns = @JoinColumn(name="Vehiculo_Fav")
 	)
-	private List<Vehiculo> VehiculosFav = new ArrayList<>();
+	private List<Vehiculo> vehiculosFav = new ArrayList<>();
 	
-	public UsuarioReg(String nomUser, String pass, String nombre, String apellidos, String correo, String direccion,
-			String telCont) {
+	//Constructores
+
+	public UsuarioReg(String email, String password, String nombre, String apellidos, String direccion, String telCont,
+			boolean admin, List<Operacion> operaciones, Carrito carrito, List<Vehiculo> vehiculosFav) {
 		super();
-		this.nomUser = nomUser;
-		this.pass = pass;
+		this.email = email;
+		this.password = password;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.correo = correo;
 		this.direccion = direccion;
 		this.telCont = telCont;
+		this.admin = admin;
+		this.operaciones = operaciones;
+		this.carrito = carrito;
+		this.vehiculosFav = vehiculosFav;
 	}
-	
+
+
 	// Helpers OneToMany user-ope
 	public void addOperacionUser(Operacion ope) {
 		this.operaciones.add(ope);
@@ -70,12 +95,62 @@ public class UsuarioReg {
 
 	//Helpers ManyToMany user-vehiculosFav
 	public void addVehiculoFav(Vehiculo veh) {
-		VehiculosFav.add(veh);
+		vehiculosFav.add(veh);
 		veh.getUsuariosReg().add(this);
 	}
 	
 	public void removeVehiculosFav(Vehiculo veh) {
-		VehiculosFav.remove(veh);
+		vehiculosFav.remove(veh);
 		veh.getUsuariosReg().remove(this);
 	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		String role = "ROLE_";
+		if (admin) {
+			role += "ADMIN";
+		} else {
+			role += "USER";
+		}
+		return Arrays.asList(new SimpleGrantedAuthority(role));
+
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+
 }

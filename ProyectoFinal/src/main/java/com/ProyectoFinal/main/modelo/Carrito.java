@@ -28,31 +28,36 @@ public class Carrito {
 	//asociacion carr-vehiStock
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy="Carrito")
-	private List<Vehiculo> VehiculosStock = new ArrayList<>();
+	@OneToMany(mappedBy="carrito")
+	private List<Vehiculo> vehiculosStock = new ArrayList<>();
 	
 	//asociacion carr-user
 	
-	public Carrito(long idCarrito, double precio, int numArticulo, List<Vehiculo> itemsCarro,
-			List<Vehiculo> vehiculosStock) {
+	
+	
+	//Constructores
+	
+	public Carrito(long idCarrito, double precio, int numArticulo, List<Vehiculo> vehiculosStock) {
 		super();
 		this.idCarrito = idCarrito;
 		this.precio = precio;
 		this.numArticulo = numArticulo;
-		VehiculosStock = vehiculosStock;
+		this.vehiculosStock = vehiculosStock;
 	}
 	
 	//Helpers carr-vehiStock
 	public void addVehiculoCarr(Vehiculo veh) {
-		this.VehiculosStock.add(veh);
+		this.vehiculosStock.add(veh);
 		veh.setCarrito(this);
 		}
 	
 	public void removeVehiculoCarr(Vehiculo veh) {
-		this.VehiculosStock.remove(veh);
+		this.vehiculosStock.remove(veh);
 		veh.setCarrito(null);
 		
 	}
+
+
 
 
 
