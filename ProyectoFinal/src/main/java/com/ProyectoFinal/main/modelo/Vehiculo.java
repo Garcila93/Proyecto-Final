@@ -25,7 +25,7 @@ public class Vehiculo {
 	@GeneratedValue
 	private long id;
 	
-	private String numBastidor, matricula, marca, modelo, tipoAuto,tipoCombustible, estado;
+	private String numBastidor, matricula, marca, modelo, tipoAuto,tipoCombustible, estado, imagen;
 	private int motor, cv, km;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaAlta, fechaCompra, fechaVenta;
@@ -42,10 +42,12 @@ public class Vehiculo {
 	@ToString.Exclude
 	@ManyToMany(mappedBy="vehiculosFav")
 	private List<UsuarioReg> UsuariosReg = new ArrayList<>();
-	
+
+	//Constructores
 	public Vehiculo(String numBastidor, String matricula, String marca, String modelo, String tipoAuto,
-			String tipoCombustible, String estado, int motor, int cv, int km, LocalDate fechaAlta2,
-			LocalDate fechaCompra2, LocalDate fechaVenta2, double precio) {
+			String tipoCombustible, String estado, String imagen, int motor, int cv, int km, LocalDate fechaAlta,
+			LocalDate fechaCompra, LocalDate fechaVenta, double precio, Carrito carrito, Operacion operacion,
+			List<UsuarioReg> usuariosReg) {
 		super();
 		this.numBastidor = numBastidor;
 		this.matricula = matricula;
@@ -54,14 +56,16 @@ public class Vehiculo {
 		this.tipoAuto = tipoAuto;
 		this.tipoCombustible = tipoCombustible;
 		this.estado = estado;
+		this.imagen = imagen;
 		this.motor = motor;
 		this.cv = cv;
 		this.km = km;
-		this.fechaAlta = fechaAlta2;
-		this.fechaCompra = fechaCompra2;
-		this.fechaVenta = fechaVenta2;
+		this.fechaAlta = fechaAlta;
+		this.fechaCompra = fechaCompra;
+		this.fechaVenta = fechaVenta;
 		this.precio = precio;
+		this.carrito = carrito;
+		this.operacion = operacion;
+		UsuariosReg = usuariosReg;
 	}
-	
-	
 }

@@ -1,5 +1,7 @@
 package com.ProyectoFinal.main.servicios;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.ProyectoFinal.main.modelo.Empleados;
@@ -12,6 +14,9 @@ public class EmpleadoServicio extends BaseService<Empleados, Long, IEmpleadoRepo
 	public EmpleadoServicio(IEmpleadoRepository repo) {
 		super(repo);
 		
+	}
+	public Optional<Empleados> buscarPorEmail(String email) {
+		return repositorio.findFirstByEmail(email);
 	}
 
 }
