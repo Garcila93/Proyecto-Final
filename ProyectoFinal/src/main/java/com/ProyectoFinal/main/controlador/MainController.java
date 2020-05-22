@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ProyectoFinal.main.modelo.Vehiculo;
@@ -17,11 +18,21 @@ public class MainController {
 	private final VehiculoServicio VehServicio;
 	private final String BASE_IMAGE_PATH;
 	
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String index() {
 				
 		return "inicio";
 	}
+	
+	@GetMapping("/admin-home")
+	public String adminHome(@RequestParam(name="nombre", required=false, defaultValue="user")String nombre, Model model){
+	
+		model.addAttribute("nombre", nombre);
+		
+		return "Admin/admin-view-home";
+	}
+	
+	
 	//controladores de subida de imagen
 	public MainController(VehiculoServicio VehServicio, @Value("${image.base-path:/files}") String path) {
 		this.VehServicio = VehServicio;
@@ -33,11 +44,11 @@ public class MainController {
 		return this.BASE_IMAGE_PATH;
 	}
 	
-	
-	@GetMapping("/")
+	//REVISAR
+	@GetMapping("/add-car")
 	public String showForm(Model model) {
 		model.addAttribute("cosa", new Vehiculo());
-		return "inicio";
+		return "Form-add-coche";
 	}
 	
 	

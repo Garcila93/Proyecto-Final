@@ -19,6 +19,7 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 	
 	
 	private final UserDetailsService userDetailsService;
+	private final CustomSuccessHandler customSuccessHandler;
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -44,10 +45,15 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 			.formLogin()
 				.loginPage("/login")
 				.permitAll()
+				.successHandler(customSuccessHandler)
 				.and()
 			.logout()
 				.logoutUrl("/logout")
-				.permitAll();
+				.permitAll()
+				.and()
+			.exceptionHandling()
+				.accessDeniedPage("/acceso-denegado");
+		
 		
 	
 		http.csrf().disable();

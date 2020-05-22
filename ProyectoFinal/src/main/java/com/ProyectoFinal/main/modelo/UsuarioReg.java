@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,7 +39,6 @@ public class UsuarioReg implements UserDetails {
 	private String email;
 	
 	
-	//@Autowired
 	private String password;
 	
 	private String nombre, apellidos, direccion, telCont;
@@ -106,20 +105,13 @@ public class UsuarioReg implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		String role = "ROLE_";
-		if (admin) {
-			role += "ADMIN";
-		} else {
-			role += "USER";
-		}
-		return Arrays.asList(new SimpleGrantedAuthority(role));
-
+		return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
 	}
 
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.password;
 	}
 
 	@Override

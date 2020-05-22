@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
 
-    <title>Vista Admin Home</title>
+    <title>Vista Veh Detail User</title>
 </head>
 
 <body class="bg">
@@ -38,7 +38,7 @@
 
 
             <div class="col-2 m-0 p-0">
-                <p style="color: white; margin: 0; ">Bienvenido <span th:utext="${Admin.nombre}">user </span><img src="img/user.png" alt="icono user"
+                <p style="color: white; margin: 0; ">Bienvenido admin <img src="img/user.png" alt="icono user"
                         width="10%" height="10%" style="margin-left: 5%;"></p>
             </div>
         </div>
@@ -49,83 +49,39 @@
     <!--Menu lateral-->
 
     <div class="row">
-        <div class="col-2" style="margin-top: 2%; margin-left: 2%; background-color:#00000094; height: 300px;">
-            <div id="accordion" style="margin-top: 10%;">
-
-                <div class="card menulateral">
-                    <div class="card-header">
-                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                            Vehiculos
-                        </a>
-                    </div>
-                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="form-check">
-                                <!-- poner hiperenlaces mas que checkbox con las opciones mas usadas o accesos directos-->
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" value="">Option 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" value="">Option 2
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-3" style="margin-top: 2%; margin-left: 2%; background-color:#00000094; width: 350px; height: 275px;">
+            <div class="card" style="margin-top: 5%; ">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Compra</a>
                 </div>
-
-                <div class="card menulateral">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                            Usuarios
-                        </a>
-                    </div>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" value="">Option 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" value="">Option 2
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card menulateral">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                            Empleados
-                        </a>
-                    </div>
-                    <div id="collapseThree" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" value="">Option 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" value="">Option 2
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
         <!--Mensaje Bienvenida-->
-        <div class="col-8" style="margin-top: 12.5%; background-color:#00000094; margin-left: 2%;">
+        <div class="col-7" style="margin-top: 5%; background-color:#00000094; margin-left: 2%; color: white; text-align: justify;">
             <div>
-                <img src="img/logo-lema.png" alt="Logotipo empresa con lema" width="100%" height="90%">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor urna vel imperdiet mattis. Duis
+                    a diam ac magna rhoncus sollicitudin nec sollicitudin est. Morbi nec fringilla ligula. Nulla
+                    facilisi. Nullam elementum quam lacus, eu lobortis dolor elementum quis. Cras libero lacus, volutpat
+                    a tempus nec, viverra vitae ligula. Mauris in ex nec metus tristique consectetur. Donec a ipsum non
+                    risus pretium ultrices. Maecenas tellus est, faucibus ut nisi non, pharetra commodo ante. Vivamus
+                    vel sagittis dolor. Sed dictum magna vitae elit accumsan, a congue orci placerat. In malesuada
+                    venenatis fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac scelerisque
+                    massa, non tincidunt justo.
+                </p>
+                <p>
+                    Nam tempus tincidunt accumsan. Donec ullamcorper massa sit amet purus molestie egestas. Nunc nisi
+                    eros, mollis id magna ut, elementum molestie erat. In vitae nisi in nunc finibus ornare ut quis dui.
+                    Integer cursus pharetra diam a pretium. Sed erat mi, porttitor interdum elementum a, vehicula at
+                    sem. Vestibulum porttitor feugiat libero ut bibendum. Interdum et malesuada fames ac ante ipsum
+                    primis in faucibus. Vivamus felis nibh, tristique sed vestibulum mollis, blandit ut risus. Sed velit
+                    nisl, maximus sed pellentesque nec, tristique vel libero. Etiam scelerisque iaculis sapien, eu
+                    luctus odio euismod at.
+                </p>
             </div>
         </div>
         <div class="col-2">

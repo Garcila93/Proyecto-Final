@@ -1,6 +1,12 @@
 package com.ProyectoFinal.main.modelo;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import javax.persistence.Entity;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,7 +21,11 @@ public class Admin extends Empleados {
 	private static final long serialVersionUID = 1L;
 	private boolean admin= true;
 	
-	
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+	}
 	
 	
 }
