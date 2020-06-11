@@ -1,5 +1,6 @@
 package com.ProyectoFinal.main.servicios;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -7,9 +8,15 @@ import com.ProyectoFinal.main.modelo.Vehiculo;
 import com.ProyectoFinal.main.repositorio.IVehiculoRepository;
 import com.ProyectoFinal.main.servicios.base.BaseService;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Service
 public class VehiculoServicio extends BaseService<Vehiculo, Long, IVehiculoRepository>{
 
+	@Autowired
+	@Getter @Setter
+	private IVehiculoRepository vehiculoRepositorio;	
 	private final DBStorageService dbStorageService;
 
 	public VehiculoServicio(IVehiculoRepository repo, 
@@ -19,7 +26,7 @@ public class VehiculoServicio extends BaseService<Vehiculo, Long, IVehiculoRepos
 		this.dbStorageService = dbStoreService;
 	}
 	
-	// gaurdar entidad
+	// guardar entidad
 	public Vehiculo save(Vehiculo c, MultipartFile imagen) {
 		// Pasos a seguir
 		

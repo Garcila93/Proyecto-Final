@@ -8,5 +8,5 @@ import com.ProyectoFinal.main.modelo.UsuarioReg;
 
 public interface IUsuarioRegRepository extends JpaRepository<UsuarioReg, Long>{
 
-	Optional<UsuarioReg> findFirstByEmail(String email);
+	Optional<UsuarioReg> findFirstByEmail(String username);
 }

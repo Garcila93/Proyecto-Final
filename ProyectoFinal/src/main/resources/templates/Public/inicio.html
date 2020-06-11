@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <title>Inicio</title>
@@ -57,7 +58,7 @@
 
               <!-- Modal body -->
               <div class="modal-body">
-                <form action="/action_page.php">
+                <form method="POST" action="#" th:action="@{/veh-stock-user}">
                   <div class="form-group">
                     <label for="email">Dirección de email:</label>
                     <input type="email" class="form-control" placeholder="Email" id="email">
@@ -99,16 +100,16 @@
     <div class="col-2" style="margin-top: 2%; margin-left: 2%; background-color:#00000094; height: 300px;">
       <ul class="nav flex-column" style="font-size: 2.5em;">
         <li class="nav-item">
-          <a class="nav-link" href="#">Vehiculos</a>
+          <a class="nav-link" href="#">Vehículos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Compra</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Financiacion</a>
+          <a class="nav-link" href="#">Financiación</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#">Construcctor</a>
+          <a class="nav-link " href="#">Constructor</a>
         </li>
       </ul>
 
@@ -213,7 +214,7 @@
       <a href="https://mdbootstrap.com/" style="flex-grow: 1"> Contacto</a>
 
 
-      <a href="https://mdbootstrap.com/" style="flex-grow: 1"> Póliticas de privacidad & Términos y condiciones</a>
+      <a href="https://mdbootstrap.com/" style="flex-grow: 1"> Políticas de privacidad & Términos y condiciones</a>
 
 
       <a href="https://mdbootstrap.com/" style="flex-grow: 1"> Ubicación</a>

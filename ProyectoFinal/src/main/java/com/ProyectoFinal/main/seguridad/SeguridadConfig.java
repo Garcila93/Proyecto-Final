@@ -2,6 +2,7 @@ package com.ProyectoFinal.main.seguridad;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,33 +35,32 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
+		
+		// @formatter:off
+		
 		http
 			.authorizeRequests()
-				.antMatchers("/css/**", "/js/**","/h2-console/**").permitAll()
-				.antMatchers("/admin/**").hasRole("ADMIN")
-				.antMatchers("/user/**").hasRole("USER")
-			//	.anyRequest().authenticated()
+				.antMatchers("/css/**", "/js/**","/Img/**","/Jquery/**", "/", "/Public/**", "/h2-console/**").permitAll()
+				.antMatchers(HttpMethod.POST,"/login").permitAll()
+				.antMatchers("/Admin/**").hasRole("ADMIN")
+				.antMatchers("/User/**").hasRole("USER")
+				//.anyRequest().authenticated()
 				.and()
 			.formLogin()
 				.loginPage("/login")
-				.permitAll()
+				.defaultSuccessUrl("/User/")
+				.loginProcessingUrl("/login").permitAll()
 				.successHandler(customSuccessHandler)
+				.permitAll()
 				.and()
 			.logout()
 				.logoutUrl("/logout")
-				.permitAll()
-				.and()
-			.exceptionHandling()
-				.accessDeniedPage("/acceso-denegado");
-		
-		
+				.permitAll();
 	
+		
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
-		
-		
-
+	
 	}
 
 }

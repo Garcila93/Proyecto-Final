@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -19,13 +21,14 @@ import lombok.ToString;
 
 @Data @NoArgsConstructor
 @Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Vehiculo {
 
 	@Id
 	@GeneratedValue
 	private long id;
 	
-	private String numBastidor, matricula, marca, modelo, tipoAuto,tipoCombustible, estado, imagen;
+	private String numBastidor, matricula, marca, modelo, tipoCombustible, estado, imagen;
 	private int motor, cv, km;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaAlta, fechaCompra, fechaVenta;
@@ -42,9 +45,16 @@ public class Vehiculo {
 	@ToString.Exclude
 	@ManyToMany(mappedBy="vehiculosFav")
 	private List<UsuarioReg> UsuariosReg = new ArrayList<>();
+	
+	//metodos auxiliares con carrito
+	
+	
+	//metodos auxiliares con operacion
 
+	
+	 
 	//Constructores
-	public Vehiculo(String numBastidor, String matricula, String marca, String modelo, String tipoAuto,
+	public Vehiculo(String numBastidor, String matricula, String marca, String modelo,
 			String tipoCombustible, String estado, String imagen, int motor, int cv, int km, LocalDate fechaAlta,
 			LocalDate fechaCompra, LocalDate fechaVenta, double precio, Carrito carrito, Operacion operacion,
 			List<UsuarioReg> usuariosReg) {
@@ -53,7 +63,6 @@ public class Vehiculo {
 		this.matricula = matricula;
 		this.marca = marca;
 		this.modelo = modelo;
-		this.tipoAuto = tipoAuto;
 		this.tipoCombustible = tipoCombustible;
 		this.estado = estado;
 		this.imagen = imagen;

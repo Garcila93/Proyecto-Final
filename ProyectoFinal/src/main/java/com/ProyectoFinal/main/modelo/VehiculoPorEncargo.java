@@ -29,7 +29,7 @@ public class VehiculoPorEncargo extends Vehiculo {
 			LocalDate fechaCompra, LocalDate fechaVenta, double precio, Carrito carrito, Operacion operacion,
 			List<UsuarioReg> usuariosReg, String color, boolean llantasAle, boolean lunasTint, boolean ac,
 			boolean navegador, boolean farosLed) {
-		super(numBastidor, matricula, marca, modelo, tipoAuto, tipoCombustible, estado, imagen, motor, cv, km,
+		super(numBastidor, matricula, marca, modelo, tipoCombustible, estado, imagen, motor, cv, km,
 				fechaAlta, fechaCompra, fechaVenta, precio, carrito, operacion, usuariosReg);
 		this.color = color;
 		this.llantasAle = llantasAle;

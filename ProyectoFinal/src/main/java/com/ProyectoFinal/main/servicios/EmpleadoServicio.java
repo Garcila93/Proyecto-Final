@@ -15,6 +15,7 @@ public class EmpleadoServicio extends BaseService<Empleados, Long, IEmpleadoRepo
 		super(repo);
 		
 	}
+	
 	public Optional<Empleados> buscarPorEmail(String email) {
 		return repositorio.findFirstByEmail(email);
 	}

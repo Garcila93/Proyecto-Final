@@ -24,6 +24,7 @@ public class Operacion {
 	@Id
 	@GeneratedValue
 	private long id;
+	
 	private long idOperacion;
 	private double precioTotal;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

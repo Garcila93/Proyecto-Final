@@ -15,7 +15,7 @@ public class UsuarioRegServicio extends BaseService<UsuarioReg, Long, IUsuarioRe
 		super(repo);
 	
 	}
-	public Optional<UsuarioReg> buscarPorEmail(String email) {
-		return repositorio.findFirstByEmail(email);
+	public Optional<UsuarioReg> buscarPorEmail(String username) {
+		return repositorio.findFirstByEmail(username);
 	}
 }
