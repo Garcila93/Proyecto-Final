@@ -26,6 +26,6 @@ public class UsuarioController {
 
 	@GetMapping("/")
 	public String index() {
-		return "User/veh-stock-user";
+		return "User/inicio-user";
 	}
 }

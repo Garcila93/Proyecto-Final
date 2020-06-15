@@ -32,7 +32,7 @@ public class MainController {
 		return "Public/inicio";
 	}
 	
-	/*
+
 	 //TODO realizar plantilla de login sin modal para redireccionar
 	
 	@GetMapping("/login")
@@ -46,7 +46,7 @@ public class MainController {
 		
 		return "User/user-home";
 	}
-	 */
+
 	
 	//Registro y redireccion a inicio
 	@GetMapping("/registro")
