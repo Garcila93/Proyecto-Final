@@ -32,7 +32,9 @@ public class MainController {
 		return "Public/inicio";
 	}
 	
-	//TODO realizar plantilla de login sin modal para redireccionar
+	/*
+	 //TODO realizar plantilla de login sin modal para redireccionar
+	
 	@GetMapping("/login")
 	public String login() {
 				
@@ -44,21 +46,21 @@ public class MainController {
 		
 		return "User/user-home";
 	}
-	
+	 */
 	
 	//Registro y redireccion a inicio
-	@GetMapping("/registry")
+	@GetMapping("/registro")
 	public String nuevoUsuario(Model m) {
 		m.addAttribute("registro", new UsuarioReg());
 		return "Public/registro";
 	}
 	
-	@PostMapping("/incio/submit")
+	@PostMapping("Public/registro")
 	public String nuevoUsuarioSubmit(@ModelAttribute("registro") UsuarioReg nuevoUsuarioReg) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		nuevoUsuarioReg.setPassword(encoder.encode(nuevoUsuarioReg.getPassword()));
 		UserRegServicio.save(nuevoUsuarioReg);
-		return "redirect:/inicio";
+		return "redirect:User/veh-stock-user";
 	}
 	
 	

@@ -49,11 +49,11 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		}
 
 		if (isAdmin(roles)) {
-			url = "/admin/";
+			url = "/Admin/admin-view-home";
 		} else if (isUser(roles)) {
-			url = "/";
+			url = "/User/veh-stock-user";
 		} else {
-			url = "/acceso-denegado";
+			url = "/Public/";
 		}
 
 		return url;

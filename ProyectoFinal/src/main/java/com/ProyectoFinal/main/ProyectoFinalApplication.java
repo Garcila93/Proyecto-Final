@@ -41,6 +41,7 @@ public class ProyectoFinalApplication {
 			
 			
 			Empleados a = new Admin();
+
 			a.setAdmin(true);
 			a.setNombre("Ángel");
 			a.setApellido("Narajo");
@@ -57,8 +58,6 @@ public class ProyectoFinalApplication {
 			v.setModelo("F350");
 			v.setTipoCombustible("Gasolina");
 			*/
-			
-		
 			
 		};
 

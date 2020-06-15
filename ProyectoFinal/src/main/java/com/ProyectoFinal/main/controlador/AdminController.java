@@ -31,16 +31,19 @@ public class AdminController {
 	private VehiculoServicio vehService;
 	
 	
-	@GetMapping("/")
-	public String index() {
-		return "admin/admin-view-home";
+	@GetMapping({"/","/Admin/admin-view-home"})
+	public String adminViewHome(){
+	
+		//model.addAttribute("nombre", nombre);
+		
+		return "Admin/admin-view-home";
 	}
 
-	@GetMapping("/admin-view-home")
-	public String adminHome(@RequestParam(name="nombre", required=false, defaultValue="user")String nombre, Model model){
+	@GetMapping("/admin-view-list")
+	public String adminViewList(@RequestParam(name="nombre", required=false, defaultValue="user")String nombre, Model model){
 	
 		model.addAttribute("nombre", nombre);
 		
-		return "Admin/admin-view-home";
+		return "Admin/admin-view-list";
 	}
 }
