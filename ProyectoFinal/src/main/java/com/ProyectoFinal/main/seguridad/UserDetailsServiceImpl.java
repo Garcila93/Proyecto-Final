@@ -5,8 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-//import com.ProyectoFinal.main.servicios.EmpleadoServicio;
-import com.ProyectoFinal.main.servicios.UsuarioRegServicio;
+import com.ProyectoFinal.main.servicios.UsuarioServicio;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,14 +13,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService{
 
-	private final UsuarioRegServicio usuarioRegServicio;
+	private final UsuarioServicio usuarioServicio;
 		
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		return usuarioRegServicio.buscarPorEmail(username)
+		return usuarioServicio.buscarPorEmail(username)
 				.orElseThrow(()-> new UsernameNotFoundException("Usuario no encontrado"));
-	
+		
 	}
 
 }
