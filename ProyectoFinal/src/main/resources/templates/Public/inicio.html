@@ -58,14 +58,14 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
               <!-- Modal body -->
               <div class="modal-body">
-                <form method="POST" action="#" th:action="@{/User/inicio-user}">
+                <form method="POST" action="#" th:action="@{/login}">
                   <div class="form-group">
                     <label for="email">Dirección de email:</label>
-                    <input type="email" class="form-control" placeholder="Email" id="email">
+                    <input type="email" class="form-control" placeholder="Email" id="email" name="username">
                   </div>
                   <div class="form-group">
                     <label for="pwd">Contraseña:</label>
-                    <input type="password" class="form-control" placeholder="Contraseña" id="pwd">
+                    <input type="password" class="form-control" placeholder="Contraseña" id="pwd" name="password">
                   </div>
                   <div class="form-group form-check">
                     <label class="form-check-label">

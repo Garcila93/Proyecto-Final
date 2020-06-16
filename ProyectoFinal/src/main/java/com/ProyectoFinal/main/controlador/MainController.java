@@ -13,11 +13,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ProyectoFinal.main.modelo.UsuarioReg;
 import com.ProyectoFinal.main.modelo.Vehiculo;
 import com.ProyectoFinal.main.servicios.UsuarioRegServicio;
+import com.ProyectoFinal.main.servicios.UsuarioServicio;
 import com.ProyectoFinal.main.servicios.VehiculoServicio;
 
 @Controller
 public class MainController {
 	
+	@Autowired
+	private UsuarioServicio UsuarioServicio;
 	@Autowired
 	private VehiculoServicio VehServicio;
 	@Autowired
@@ -37,17 +40,12 @@ public class MainController {
 	
 	@GetMapping("/login")
 	public String login() {
-				
+	
 		return "Public/login-page";
+			
 	}
 	
-	@PostMapping("User/user-home")
-	public String userHome(Model m) {
 		
-		return "User/user-home";
-	}
-
-	
 	//Registro y redireccion a inicio
 	@GetMapping("/registro")
 	public String nuevoUsuario(Model m) {
@@ -70,13 +68,6 @@ public class MainController {
 				model.addAttribute("Stock", VehServicio.findAll());
 		return "Public/veh-stock";
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	//controladores de subida de imagen

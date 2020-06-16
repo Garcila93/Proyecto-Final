@@ -31,7 +31,7 @@ public class AdminController {
 	private VehiculoServicio vehService;
 	
 	
-	@GetMapping({"/","/Admin/admin-view-home"})
+	@GetMapping("/")
 	public String adminViewHome(){
 	
 		//model.addAttribute("nombre", nombre);

@@ -5,45 +5,30 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
-@Data @NoArgsConstructor
+@Getter @Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+@NoArgsConstructor
 @Entity
-public class UsuarioReg implements UserDetails {
+public class UsuarioReg extends Usuario {
 	
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private long id;
-	
-	@Column(unique = true)
-	private String email;
-	
-	
-	private String password;
-	
-	private String nombre, apellidos, direccion, telCont;
-	
-	private boolean admin=false;
 	
 	//Asocicacion user-operciones
 	@EqualsAndHashCode.Exclude
@@ -56,6 +41,8 @@ public class UsuarioReg implements UserDetails {
 	private Carrito carrito;
 	
 	//asociacion user-vehiculos
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
 	@ManyToMany
 	@JoinTable(
 		joinColumns = @JoinColumn(name="Usuario"),
@@ -64,23 +51,19 @@ public class UsuarioReg implements UserDetails {
 	private List<Vehiculo> vehiculosFav = new ArrayList<>();
 	
 	//Constructores
-
-	public UsuarioReg(String email, String password, String nombre, String apellidos, String direccion, String telCont,
-			boolean admin, List<Operacion> operaciones, Carrito carrito, List<Vehiculo> vehiculosFav) {
-		super();
-		this.email = email;
-		this.password = password;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.direccion = direccion;
-		this.telCont = telCont;
-		this.admin = admin;
+	public UsuarioReg(Long id, String email, String password, String nombre, String apellidos, String direccion,
+			String numTel, boolean admin, List<Operacion> operaciones, Carrito carrito, List<Vehiculo> vehiculosFav) {
+		super(id, email, password, nombre, apellidos, direccion, numTel, admin);
 		this.operaciones = operaciones;
 		this.carrito = carrito;
 		this.vehiculosFav = vehiculosFav;
 	}
 
-
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+	}
+	
 	// Helpers OneToMany user-ope
 	public void addOperacionUser(Operacion ope) {
 		this.operaciones.add(ope);
@@ -102,47 +85,5 @@ public class UsuarioReg implements UserDetails {
 		vehiculosFav.remove(veh);
 		veh.getUsuariosReg().remove(this);
 	}
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-	}
-
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return this.password;
-	}
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
 
 }

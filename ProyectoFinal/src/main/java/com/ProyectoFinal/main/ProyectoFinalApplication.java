@@ -9,8 +9,8 @@ import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
 import com.ProyectoFinal.main.modelo.Admin;
 import com.ProyectoFinal.main.modelo.Empleados;
+import com.ProyectoFinal.main.modelo.Usuario;
 import com.ProyectoFinal.main.modelo.UsuarioReg;
-import com.ProyectoFinal.main.modelo.Vehiculo;
 import com.ProyectoFinal.main.servicios.EmpleadoServicio;
 import com.ProyectoFinal.main.servicios.UsuarioRegServicio;
 import com.ProyectoFinal.main.servicios.VehiculoServicio;
@@ -44,11 +44,12 @@ public class ProyectoFinalApplication {
 
 			a.setAdmin(true);
 			a.setNombre("Ángel");
-			a.setApellido("Narajo");
+			a.setApellidos("Narajo");
 			a.setEmail("angel.naranjo@email.com");
 			a.setPassword(passwordEncoder.encode("1234"));
 			
 			empServicio.save(a);
+			
 			
 			/*
 			Vehiculo v= new Vehiculo();
