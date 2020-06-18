@@ -9,8 +9,8 @@ import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
 import com.ProyectoFinal.main.modelo.Admin;
 import com.ProyectoFinal.main.modelo.Empleados;
-import com.ProyectoFinal.main.modelo.Usuario;
 import com.ProyectoFinal.main.modelo.UsuarioReg;
+import com.ProyectoFinal.main.modelo.Vehiculo;
 import com.ProyectoFinal.main.servicios.EmpleadoServicio;
 import com.ProyectoFinal.main.servicios.UsuarioRegServicio;
 import com.ProyectoFinal.main.servicios.VehiculoServicio;
@@ -51,14 +51,15 @@ public class ProyectoFinalApplication {
 			empServicio.save(a);
 			
 			
-			/*
+			
 			Vehiculo v= new Vehiculo();
 			v.setNumBastidor("WP0AA2A96BS255642");
 			v.setMatricula("7501DJK");
 			v.setMarca("Ford");
 			v.setModelo("F350");
 			v.setTipoCombustible("Gasolina");
-			*/
+			
+			VehServicio.save(v);
 			
 		};
 

@@ -73,7 +73,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     </label>
                   </div>
                   <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-                 <!-- <button type="submit" class="btn btn-primary">Registrarse</button> --> 
+                  <button type="submit" class="btn btn-primary"><a href=Public/registro th:href="@{/registro}" style="text-decoration:none; color: #FFFFFF">Registrarse</a></button>
                 </form>
               </div>
 
@@ -100,7 +100,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div class="col-2" style="margin-top: 2%; margin-left: 2%; background-color:#00000094; height: 300px;">
       <ul class="nav flex-column" style="font-size: 2.5em;">
         <li class="nav-item">
-          <a class="nav-link" href="#">Vehículos</a>
+          <a class="nav-link" href="#" th:href="@{/veh-stock}">Vehículos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Compra</a>

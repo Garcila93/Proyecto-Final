@@ -41,11 +41,10 @@ public class MainController {
 	@GetMapping("/login")
 	public String login() {
 	
-		return "Public/login-page";
+		return "/Public/login-page";
 			
 	}
 	
-		
 	//Registro y redireccion a inicio
 	@GetMapping("/registro")
 	public String nuevoUsuario(Model m) {
@@ -53,12 +52,12 @@ public class MainController {
 		return "Public/registro";
 	}
 	
-	@PostMapping("Public/registro")
+	@PostMapping("/Public/registro")
 	public String nuevoUsuarioSubmit(@ModelAttribute("registro") UsuarioReg nuevoUsuarioReg) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		nuevoUsuarioReg.setPassword(encoder.encode(nuevoUsuarioReg.getPassword()));
 		UserRegServicio.save(nuevoUsuarioReg);
-		return "redirect:User/veh-stock-user";
+		return "redirect:/User/incio-user";
 	}
 	
 	

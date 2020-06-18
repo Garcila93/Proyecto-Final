@@ -7,6 +7,13 @@
     background-attachment: fixed;
     background-size: cover;
 }
+.bg.bgtemp{
+    background-image: url("../img/background.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 div{
     width: 100%;
     padding: 0px;
@@ -40,3 +47,159 @@ div.menulateral div a.card-link:hover{
     color: whitesmoke;
 
 }
+table{
+	background-color:#FFF;
+}
+
+.col-item
+{
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    background: #FFF;
+    margin-top: 30px;
+    min-height: 420px;
+    max-height: 420px;
+}
+.col-item .photo img
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.col-item .info
+{
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+}
+
+.col-item:hover .info {
+    background-color: #F5F5DC;
+}
+.col-item .price
+{
+    float: left;
+    margin-top: 5px;
+}
+
+.col-item .price h5
+{
+    line-height: 20px;
+    margin: 0;
+    /*min-height: 70px;*/
+}
+
+.price-text-color
+{
+    color: #219FD1;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 0 8px 0;
+    text-align: center;
+}
+
+.price-text-color .price-original {
+	
+	font-size: 14px;
+	text-decoration: line-through;
+	color: #AAA;
+	padding: 0 5px 0 5px;
+}
+
+.col-item .info .rating
+{
+    color: #777;
+}
+
+.col-item .rating
+{    
+    float: left;
+    font-size: 17px;
+    text-align: right;
+    line-height: 52px;
+    margin-bottom: 10px;
+    height: 52px;
+    padding-right: 30px;
+}
+
+.col-item .separator
+{
+    border-top: 1px solid #E1E1E1;
+}
+
+.clear-left
+{
+    clear: left;
+}
+
+.col-item .separator p
+{
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.col-item .separator p i
+{
+    margin-right: 5px;
+}
+.col-item .btn-add
+{
+    width: 50%;
+    float: left;
+}
+
+.col-item .btn-add
+{
+    border-right: 1px solid #E1E1E1;
+}
+
+.col-item .btn-details
+{
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+
+/**
+  * Detalles de un producto
+  */
+  
+.product-name {
+	font-weight: bold;
+	margin-top: 1.5em;
+}
+
+.product-price {
+	margin-top: 20px;
+}
+
+.product-price .pvp {
+	font-size: 3em;
+	font-weight: bold;
+	color: #E37B40;
+} 
+
+.product-price .pvp-no-discounted {
+	font-size: 2em;
+	text-decoration: line-through;
+	color: #AAA;
+	margin-top: 10px;
+}
+
+.discount {
+	margin: 15px 0 0 20px;
+}
+
+.discount .label-discount {
+	color: #BBB;
+	font-weight: bold;
+}
+
+.discount span.label {
+	font-size: 1.5em;
+}
+ .operaciones {
+ 	width: 20%;
+ }

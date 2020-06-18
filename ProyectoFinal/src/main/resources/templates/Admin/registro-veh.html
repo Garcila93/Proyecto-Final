@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+    <title>Registro</title>
+</head>
+
+<body class="bg">
+
+    <!--header-->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <div class="navbar-header col-4 m-0 " style=" display: flex;">
+                <div style="padding: 0;">
+                    <a class="navbar-brand" href="#"><img src="../img/logo-png.png" alt="Logo"
+                        style="width: 90%; height: 90%;"></a>
+                </div>
+                <div style="padding: 0; margin: 0;">
+                    <h1>Concesionario<br>San Pedro</h1>
+                </div>
+            </div>
+            <div class="col-6">
+                <form class="form-inline">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Buscar"
+                        aria-label="Search">
+                    <button class="btn btn-sm btn-outline-black my-0 bg-black" type="button">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+
+
+            <div class="col-2 m-0 p-0">
+              <!--    
+              <p style="color: white; margin: 0; ">Bienvenido ______ <img src="img/user.png" alt="icono user"
+                        width="10%" height="10%" style="margin-left: 5%;"></p>
+              -->
+            </div>
+        </div>
+
+
+    </nav>
+
+    <!--Menu lateral-->
+
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <!--Formulario de Registro-->
+        <div class="col-8" style="margin-top: 2%; background-color:#00000094; margin-left: 2%; color: whitesmoke;">
+            <div>
+                <form method="POST" action="#" th:action="@{/Admin/registro-veh}" th:object="${registroVeh}" id=formulario>
+                    <div class="form-group">
+                        <label for="text">Número de Bastidor:</label>
+                        <input type="text" class="form-control" placeholder="Número de bastidor" required th:field="*{numBastidor}">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Matricula: </label>
+                        <input type="text" class="form-control" placeholder="Matricula" id="matricula" required th:field="*{matricula}">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Marca:</label>
+                        <input type="text" class="form-control" placeholder="Marca" id="marca" required th:field="*{marca}">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Modelo:</label>
+                        <input type="text" class="form-control" placeholder="Modelo " id="modelo" required th:field="*{modelo}">
+                    </div>
+                    <div class="form-group">
+                        <label for="text"> Tipo de combustible:</label>
+                        <input type="text" class="form-control" placeholder="Tipo de combustible" id="combustible" required th:field="*{tipoCombustible}">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Estado:</label>
+                        <input type="text" class="form-control" placeholder="2º Mano, km 0..." id="estado" required th:field="*{estado}">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Motor: </label>
+                        <input type="text" class="form-control" placeholder="1.6, 1.9, 2.0..." required th:field="*{motor}">
+                    </div>
+                     <div class="form-group">
+                        <label for="text">CV: </label>
+                        <input type="text" class="form-control" placeholder="90, 120..." required th:field="*{cv}">
+                    </div>
+                     <div class="form-group">
+                        <label for="number">Kilómetros: </label>
+                        <input type="number" class="form-control" placeholder="0, 100.000, 200.000..." required th:field="*{km}">
+                    </div>
+                     <div class="form-group">
+                        <label for="date">Fecha de alta: </label>
+                        <input type="date" class="form-control" placeholder="AAAA/MM/DD" required th:field="*{fechaAlta}">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Fecha de compra: </label>
+                        <input type="date" class="form-control" placeholder="AAAA/MM/DD" required th:field="*{fechaCompra}">
+                    </div>
+                        <div class="form-group">
+                        <label for="number">Precio (PVP): </label>
+                        <input type="number" class="form-control" placeholder="0000000€" required th:field="*{fechaAlta}">
+                    </div>
+                   
+                    <div style="text-align: center;">
+                    <button type="submit" class="btn btn-primary" style="margin-bottom: 1%;">Resgistrar vehiculo</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-2">
+            <!--div de relleno-->
+        </div>
+</div>
+
+        <!--scripts-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

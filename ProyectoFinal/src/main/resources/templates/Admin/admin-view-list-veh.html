@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
 
-    <title>Vista Admin Home</title>
+    <title>Vista Admin List Veh</title>
 </head>
 
 <body class="bg">
@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="navbar-header col-4 m-0 " style=" display: flex;">
                 <div style="padding: 0;">
-                    <a class="navbar-brand" href="#"></a><img src="../img/logo-png.png" alt="Logo"
+                    <a class="navbar-brand" href="#"><img src="../img/logo-png.png" alt="Logo"
                         style="width: 90%; height: 90%;"></a>
                 </div>
                 <div style="padding: 0; margin: 0;">
@@ -42,104 +42,117 @@
                         width="10%" height="10%" style="margin-left: 5%;"></p>
             </div>
         </div>
-</nav>
+
+
+    </nav>
 
     <!--Menu lateral-->
 
     <div class="row">
         <div class="col-2" style="margin-top: 2%; margin-left: 2%; background-color:#00000094; height: 300px;">
             <div id="accordion" style="margin-top: 10%;">
-
+                <!--
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                            Vehiculos
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="collapse show">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Option 1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Option 2
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
                 <div class="card menulateral">
                     <div class="card-header">
                         <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                         Vehiculos
+                           Vehiculos
                         </a>
                     </div>
                     <div id="collapseOne" class="collapse show" data-parent="#accordion">
                         <div class="card-body">
                             <div class="form-check">
+                                <!-- poner hiperenlaces mas que checkbox con las opciones mas usadas o accesos directos-->
+                                <div class="form-check">
                                 <label class="form-check-label">
-                                    <a href=Admin/registro-veh th:href="@{/Admin/registro-veh}" style="text-decoration:none; text-aling:left;">Agregar vehiculo</a>
+                                    <a href=Admin/registro-veh th:href="@{/Admin/registro-veh}" style="text-decoration:none;">Agregar vehiculo</a>
                                 </label>
-                            </div>
-                             <div class="form-check">
-                                <label class="form-check-label">
-                                    <a href=Admin/registro-veh th:href="@{/Admin/admin-view-list-veh}" style="text-decoration:none; text-aling:left;">Ver vehiculos</a>
-                                </label>
-                                </div> 
+                            	</div>
+                                
                          </div>
                     </div>
                 </div>
-
-                <div class="card menulateral">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                            Usuarios
-                        </a>
-                    </div>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="form-check">
-                                 <label class="form-check-label">
-                                    <a href=Admin/registro-veh th:href="@{/Admin/registro-user}" style="text-decoration:none;">Agregar Usuario</a>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-								<a href=Admin/registro-veh th:href="@{/Admin/admin-view-list-user}" style="text-decoration:none;">Ver lista Usuarios</a>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card menulateral">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                            Empleados
-                        </a>
-                    </div>
-                    <div id="collapseThree" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="form-check">
-                               <label class="form-check-label">
-                                    <a href=Admin/registro-veh th:href="@{/Admin/registro-emp}" style="text-decoration:none;">Agregar Empleados</a>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                               <label class="form-check-label">
-                                    <a href=Admin/registro-veh th:href="@{/Admin/registro-admin}" style="text-decoration:none;">Agregar Administrador</a>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                               <label class="form-check-label">
-                                    <a href=Admin/registro-veh th:href="@{/Admin/admin-view-list-emp}" style="text-decoration:none;">Ver lista Empleados</a>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                               <label class="form-check-label">
-                                    <a href=Admin/registro-veh th:href="@{/Admin/admin-view-list-admin}" style="text-decoration:none;">Ver lista de Administradores</a>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+				</div>
+	
             </div>
         </div>
-        <!--Mensaje Bienvenida-->
-        <div class="col-8" style="margin-top: 12.5%; background-color:#00000094; margin-left: 2%;">
+        <!--Lista vehiculos-->
+        <div class="col-8" style="margin-top: 5%; background-color:#FFF; margin-left: 2%;">
             <div>
-                <img src="../img/logo-lema.png" alt="Logotipo empresa con lema" width="100%" height="90%">
+         		   <table class="table">
+					<thead>
+						<tr>
+							<th>Marca</th>
+							<th>Modelo</th>							
+							<th>Matricula</th>
+							<th>Número de Bastidor</th>
+							<th>Tipo Combustible</th>
+							<th>Kilómetros</th>
+							<th>precio</th>
+						</tr>
+					</thead>
+			         <tbody>
+			                <tr th:each="Vehiculo :${Vehiculo}">
+			                <td th:text="${Vehiculo.marca}"></td>
+			                <td th:text="${Vehiculo.modelo}"></td>
+			                <td th:text="${Vehiculo.matricula}"></td>
+			                <td th:text="${Vehiculo.numBastidor}"></td>
+			                <td th:text="${Vehiculo.tipoCombustible}"></td>
+			                <td th:text="${Vehiculo.km}"></td>
+			                <td th:text="${#numbers.formatCurrency(Vehiculo.precio)}"></td>
+			                <td class="operaciones"  style="width:10%">
+			                <a href="#"	class="btn btn-primary"><i class="fas fa-pen"></i></a>
+			                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal"><i class="fas fa-times"></i></button>
+			                </td>
+			                </tr>
+			         </tbody>
+         	</table>    
             </div>
         </div>
         <div class="col-2">
             <!--div de relleno-->
         </div>
-    </div>
+        
+        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">Borrar producto</h4>
+				</div>
+				<div class="modal-body">
+					<p>¿Está usted seguro de borrar este producto?</p>
+					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+					<a href="#" class="btn btn-danger">Sí</a>
+				</div>
+			</div>
 
+		</div>
+    </div>
 
     <!--scripts-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

@@ -30,7 +30,7 @@ public class Vehiculo {
 	
 	private String numBastidor, matricula, marca, modelo, tipoCombustible, estado, imagen;
 	private int motor, cv, km;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate fechaAlta, fechaCompra, fechaVenta;
 	private double precio;
 	
